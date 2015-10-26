@@ -42,9 +42,12 @@ class WechatApiTest {
     }
 
     private function process($raw) {
-        //libxml_disable_entity_loader(true);
-        $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+        libxml_disable_entity_loader(true);
+        $postObj = simplexml_load_string($raw, 'SimpleXMLElement', LIBXML_NOCDATA);
         logger(var_export($postObj, true));
+	if ($postObj === false) {
+		logger(var_export(libxml_get_errors(), true));
+    	}
         $fromUsername = (string)$postObj->FromUserName;  //这一句便是得到谁发给公众号，我们之后处理回复信息就需要这个；
         $toUsername = (string)$postObj->ToUserName;  //这一句得到用户发送给谁，这里这个指的就是我们这个微信公众号了；
         $keyword = trim((string)$postObj->Content);  //这一句就是用来判断用户发送过来的信息了，这里有一个函数trim，这个函数是用来去除Content消息左右两边的空格的，这样就不会影响我们对消息的判断；我们有了keyword，就可以针对用户发送过来的消息做相应的响应操作了，即判断keyword的内容，响应响应的操作；
