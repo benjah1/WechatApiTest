@@ -12,13 +12,13 @@ if [ -z "`which docker-compose`" ]; then
 	pip install docker-compose
 fi
 
-DOCKER="docker"
+DOCKER="dao"
 
 if [ -z "`which dao`" ]; then
-  $DOCKER="dao"
+  $DOCKER="docker"
 fi
 
-$DOCKER pull php:5.6-fpm
-$DOCKER pull mysql:5.6
+$DOCKER pull daocloud.io/library/php:5.6-fpm
+$DOCKER pull daocloud.io/library/mysql:5.6
 
 
