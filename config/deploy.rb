@@ -50,7 +50,7 @@ namespace :deploy do
 	task :build do
 		on roles(:all) do |host|
 			info "Build Image"
-			execute("cd #{deploy_to}/current && bash ./task/build.sh")
+			execute("cd #{deploy_to}/current && sudo bash ./task/build.sh")
 		end
 	end
 
@@ -58,7 +58,7 @@ namespace :deploy do
 	task :run do
 		on roles(:all) do |host|
 			info "Run Image"
-			execute("cd #{deploy_to}/current && bash ./task/run.sh")
+			execute("cd #{deploy_to}/current && sudo bash ./task/run.sh")
 		end
 	end
 
