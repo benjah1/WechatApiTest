@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Update source"
-sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+# sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 apt-get update
 
 echo "Check docker"
