@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('receive/sysmessage', '\App\Wx\Http\Controllers\ReceiveController@sysmessage');
+
+Route::get('receive/test', '\App\Wx\Http\Controllers\ReceiveController@test');
