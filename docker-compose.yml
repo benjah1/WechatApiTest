@@ -7,8 +7,6 @@ web:
     - db
   volumes:
     - .:/code
-  env_file: 
-    - /.env
 db:
   image: mysql:5.6
   environment:
