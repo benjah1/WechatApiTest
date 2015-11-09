@@ -8,6 +8,6 @@ web:
   volumes:
     - .:/code
 db:
-  image: daocloud.io/library/mysql:5.6
+  image: mysql:5.6
   environment:
     MYSQL_DATABASE: wechat

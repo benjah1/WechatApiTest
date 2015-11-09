@@ -1,1 +1,1 @@
-FROM daocloud.io/library/php:5.6-fpm
+FROM php:5.6-fpm

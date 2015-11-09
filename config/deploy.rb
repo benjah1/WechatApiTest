@@ -42,25 +42,28 @@ namespace :deploy do
 	task :setup do
 		on roles(:all) do |host|
 			info "Setup environment"
-			execute("cd #{deploy_to}/current && ./task/setup.sh")
+			execute("cd #{deploy_to}/current && sudo bash ./task/setup.sh")
 		end
 	end
 
 	desc 'Build Image'
 	task :build do
 		on roles(:all) do |host|
-			execute("cd #{deploy_to}/current && ./task/build.sh")
+			info "Build Image"
+			execute("cd #{deploy_to}/current && bash ./task/build.sh")
 		end
 	end
 
 	desc 'Run Image'
 	task :run do
 		on roles(:all) do |host|
-			execute("cd #{deploy_to}/current && ./task/run.sh")
+			info "Run Image"
+			execute("cd #{deploy_to}/current && bash ./task/run.sh")
 		end
 	end
 
 	after :finished, :setup
 	after :setup, :build
+	after :build, :run
 
 end
