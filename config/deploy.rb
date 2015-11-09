@@ -46,6 +46,14 @@ namespace :deploy do
 		end
 	end
 
+	desc 'Turn off previous service'
+	task :turnOff do
+		on roles(:all) do |host|
+			info "Turning off"
+			execute("cd #{deploy_to}/current && sudo bash ./task/turnoff.sh")
+		end
+	end
+
 	desc 'Build Image'
 	task :build do
 		on roles(:all) do |host|
@@ -62,8 +70,9 @@ namespace :deploy do
 		end
 	end
 
-	after :finished, :setup
-	after :setup, :build
+	after :started, :setup
+	after :updated, :turnOff
+	after :finished, :build
 	after :build, :run
 
 end
