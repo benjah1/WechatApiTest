@@ -42,7 +42,7 @@ namespace :deploy do
 	task :setup do
 		on roles(:all) do |host|
 			info "Setup environment"
-			execute("cd #{deploy_to}/current && sudo bash ./task/setup.sh")
+			execute("cd #{current_path} && sudo bash ./task/setup.sh")
 		end
 	end
 
@@ -50,7 +50,7 @@ namespace :deploy do
 	task :turnOff do
 		on roles(:all) do |host|
 			info "Turning off"
-			execute("cd #{deploy_to}/current && sudo bash ./task/turnoff.sh")
+			execute("cd #{current_path} && sudo bash ./task/turnoff.sh")
 		end
 	end
 
@@ -58,7 +58,7 @@ namespace :deploy do
 	task :build do
 		on roles(:all) do |host|
 			info "Build Image"
-			execute("cd #{deploy_to}/current && sudo bash ./task/build.sh")
+			execute("cd #{current_path} && sudo bash ./task/build.sh")
 		end
 	end
 
@@ -66,7 +66,7 @@ namespace :deploy do
 	task :run do
 		on roles(:all) do |host|
 			info "Run Image"
-			execute("cd #{deploy_to}/current && sudo bash ./task/run.sh")
+			execute("cd #{current_path} && sudo bash ./task/run.sh")
 		end
 	end
 

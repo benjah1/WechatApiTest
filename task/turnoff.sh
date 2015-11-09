@@ -1,6 +1,5 @@
 #!/bin/bash
 
+echo "turning off"
 docker-compose stop
-OFF=$?
 docker-compose rm -f
-OFF=$?
