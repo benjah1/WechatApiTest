@@ -46,6 +46,14 @@ namespace :deploy do
 		end
 	end
 
+	desc 'Composer'
+	task :composer do
+		on roles(:all) do |host|
+			info "composer"
+			execute("cd #{release_path} && sudo bash ./task/composer.sh")
+		end
+	end
+
 	desc 'Turn off previous service'
 	task :turnOff do
 		on roles(:all) do |host|
@@ -71,6 +79,7 @@ namespace :deploy do
 	end
 
 	after :started, :setup
+	before :turnOff, :composer
 	after :updated, :turnOff
 	after :finished, :build
 	after :build, :run
