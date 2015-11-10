@@ -25,3 +25,5 @@ docker pull daocloud.io/library/mysql:5.6
 docker pull composer:composer
 docker tag -f daocloud.io/library/php:5.6-fpm php:5.6-fpm
 docker tag -f daocloud.io/library/mysql:5.6 mysql:5.6
+
+docker build -t my/composer -f Dockerfile-composer .

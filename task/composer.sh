@@ -2,4 +2,4 @@
 
 echo "Composer"
 
-docker run --rm -v $(pwd)/wechatApiTest:/app composer/composer install
+docker run --rm -v $(pwd)/wechatApiTest:/app my/composer install

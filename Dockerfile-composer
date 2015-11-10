@@ -1,0 +1,4 @@
+FROM composer/composer
+
+RUN composer config --global github-oauth.github.com 8d195a8908cf6bcd9a62d14f7ecf97ae4cb6439a
+
