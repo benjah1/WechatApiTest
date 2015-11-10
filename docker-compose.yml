@@ -1,6 +1,6 @@
 web:
   build: .
-  command: php -S 0.0.0.0:8000 -t /code/public
+  command: php -S 0.0.0.0:8000 -t /code/wechatApiTest/public
   ports:
     - "80:8000"
   links:
